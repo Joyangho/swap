@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Token Swap</title>
+    <style>
+        #wrapper {
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            border: 1px solid #ccc; /* 테두리 스타일 및 색상 설정 */
+            border-radius: 10px; /* 테두리 모서리 둥글게 만듦 */
+        }
+
+        /* 각 섹션에 테두리와 여백 추가 */
+        .section {
+            padding: 30px;
+            text-align: center;
+            border-bottom: 1px solid #eee; /* 각 섹션 사이에 테두리 추가 */
+        }
+
+        /* 마지막 섹션에는 하단 테두리 제거 */
+        .section:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <div class="section">
+            <h1>Wallet Control</h1>
+            <button id="btnConnectWallet" onclick="connectWallet()" style="padding: 10px;">
+                <h3>Connect Wallet</h3>
+            </button>
+            <div id="walletInfo" style="display: none;">
+                <a>Wallet Address : </a><a id="txtWalletAddress">-</a>
+                <br><br>
+                <a>ETH balance : </a><a id="txtWalletBalance">-</a><a> Ether</a>
+                <br><br>
+                <a>SABU Token balance : </a><a id="balanceOfToken">-</a><a> SABU</a>
+            </div>
+        </div>
+        <div class="section">
+            <h1>Token Count</h1>
+            <a id="txtTotalSupply">-</a>/<a id="txtMaxSupply">-</a>
+        </div>
+        <div class="section">
+            <h1>Mint <br> 1 SABU = 0.0001 ETH </h1>
+            <label for="txtMintAmount">구매할 SABU Token 수량:</label>
+            <input type="number" id="txtMintAmount" oninput="calculateResult()">
+            <p id="result">필요한 ETH: 0</p>
+            <button onclick="TokenAdd()"> <h3>SABU 토큰 메타마스크 추가</h3></button>
+            <button onclick="purchaseTokens()" style="margin: 15px; padding-left:20px; padding-right: 20px;">
+                <h3>Buy Token</h3>
+            </button>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
+    <script type="text/javascript" src="smartcontract.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+</body>
+
+</html>
